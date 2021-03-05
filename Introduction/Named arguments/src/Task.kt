@@ -1,1 +1,2 @@
-fun joinOptions(options: Collection<String>) = options.joinToString(", ","[", "]")
+fun joinOptions(options: Collection<String>) =
+        options.joinToString(prefix = "[", postfix = "]")
