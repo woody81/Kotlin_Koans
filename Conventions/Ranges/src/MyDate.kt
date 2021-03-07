@@ -5,5 +5,3 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
         return dayOfMonth - other.dayOfMonth
     }
 }
-
-operator fun MyDate.rangeTo(other: MyDate) = DateRange(this, other)

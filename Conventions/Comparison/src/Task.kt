@@ -1,22 +1,22 @@
 data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
-    override fun compareTo(other: MyDate): Int {
-        if (other.year < year) {
-            return 1
-        } else if (other.year > year) {
-            return -1
+    override operator fun compareTo(a: MyDate) =
+        when {
+            this.year != a.year -> this.year - a.year
+            this.month != a.month -> this.month - a.month
+            else -> this.dayOfMonth - a.dayOfMonth
         }
-        if (other.month < month) {
-            return 1
-        } else if (other.month > month) {
-            return -1
-        }
-        if (other.dayOfMonth < dayOfMonth) {
-            return 1
-        } else if (other.dayOfMonth > dayOfMonth) {
-            return -1
-        }
-        return 0
-    }
+//        var result = this.year.compareTo(a.year)
+//        if (result != 0) {
+//            return result;
+//        }
+//        result = this.month.compareTo(a.month)
+//        if (result != 0) {
+//            return result;
+//        }
+//        return this.dayOfMonth.compareTo(a.dayOfMonth)
 }
 
-fun compare(date1: MyDate, date2: MyDate) = date1 < date2
+fun test(date1: MyDate, date2: MyDate) {
+    // this code should compile:
+    println(date1 < date2)
+}
